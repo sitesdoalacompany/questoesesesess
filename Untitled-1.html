@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perguntas</title>
+</head>
+<body>
+    <h1>Perguntas</h1>
+    <form id="perguntasForm">
+        <label for="resposta_legal">você é viado? Sim/Não</label><br>
+        <input type="radio" id="sim_legal" name="resposta_legal" value="sim">
+        <label for="sim_legal">Sim</label>
+        <input type="radio" id="nao_legal" name="resposta_legal" value="nao">
+        <label for="nao_legal">Não</label>
+        <br><br>
+        
+        <label for="resposta_mentindo">você está mentindo?Sim/Não</label><br>
+        <input type="radio" id="sim_mentindo" name="resposta_mentindo" value="sim">
+        <label for="sim_mentindo">Sim</label>
+        <input type="radio" id="nao_mentindo" name="resposta_mentindo" value="nao">
+        <label for="nao_mentindo">Não</label>
+        <br><br>
+        
+        <input type="submit" value="Verificar Respostas">
+    </form>
+
+    <script>
+        document.getElementById("perguntasForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            const resposta_legal = document.querySelector('input[name="resposta_legal"]:checked');
+            const resposta_mentindo = document.querySelector('input[name="resposta_mentindo"]:checked');
+
+            if (!resposta_legal || !resposta_mentindo) {
+                alert("responde direito");
+                return;
+            }
+
+            if (resposta_legal.value === "sim" && resposta_mentindo.value === "nao") {
+                alert("parabéns voce é biado");
+            } else if (resposta_legal.value === "nao" && resposta_mentindo.value === "sim") {
+                alert("parabéns voce é biado");
+            } else {
+                alert("voce não seguiu as regras do joguinho.");
+            }
+        };
+    </script>
+</body>
+</html>
